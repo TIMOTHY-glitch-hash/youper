@@ -2,6 +2,25 @@
 
 This repository is the collaboration space for the Youper project. The goal is to turn a concept into a low-friction, maintainable product with clear ownership.
 
+## Initial scaffold
+
+The first implementation uses a small npm workspaces monorepo:
+
+```text
+apps/
+  web/       React + TypeScript + Vite frontend
+  api/       Express + TypeScript HTTP API
+           └─ prisma/schema.prisma
+```
+
+The API owns business rules and is the only application service that should
+write to PostgreSQL. Prisma owns the schema and migrations. The frontend calls
+the API rather than connecting directly to the database.
+
+Local infrastructure is defined in `docker-compose.yml` and currently
+provides PostgreSQL. The root scripts coordinate development, type checking,
+building, and Prisma client generation.
+
 ## Recommended architecture
 
 ### Option 1: Fastest MVP
@@ -100,11 +119,14 @@ This is the most scalable long-term option but requires the most operational mat
 
 ## Recommended starting approach
 
-For a small, collaborative team, the best starting point is:
+For a small, collaborative team, the selected starting point is:
 
 - Frontend: React + TypeScript
-- API: Supabase or a lightweight Node.js backend
-- Database: PostgreSQL
-- Hosting: Vercel + Supabase or a simple managed API service
+- API: Node.js + Express + TypeScript
+- Database: PostgreSQL + Prisma
+- Local infrastructure: Docker Compose
+- Hosting: Vercel for the web app and a managed Node.js/PostgreSQL service for the API and database
 
-This balance minimizes setup time while giving enough flexibility for iteration and growth.
+This balance keeps the boundaries clear between frontend, backend, and data
+ownership while leaving room for authentication, queues, notifications, and
+real-time features as the product requirements become clearer.

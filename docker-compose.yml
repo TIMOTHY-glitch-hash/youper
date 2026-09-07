@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: youper
+      POSTGRES_PASSWORD: youper
+      POSTGRES_DB: youper
+    ports:
+      - "5432:5432"
+    volumes:
+      - youper-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U youper -d youper"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  youper-postgres:

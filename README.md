@@ -34,10 +34,28 @@ This repository is ready for GitHub-based teamwork with the basics already in pl
 ## Repository structure
 
 - .github/: GitHub issue templates, PR template, workflows, and automation config
+- apps/web/: React + TypeScript frontend
+- apps/api/: Express + TypeScript API and Prisma schema
 - docs/: architecture and implementation plan
 - README.md: project overview and local workflow
 - LICENSE: MIT license
 - CONTRIBUTING.md: contribution guidelines
+
+## Local development
+
+Requirements: Node.js 22+, npm 11+, and Docker Desktop.
+
+```bash
+cp .env.example .env
+npm install
+docker compose up -d
+npm run db:generate
+npm run db:push
+npm run dev
+```
+
+The frontend runs at `http://localhost:5173` and the API runs at
+`http://localhost:3001`. Stop the local database with `docker compose down`.
 
 ## Project blueprint
 

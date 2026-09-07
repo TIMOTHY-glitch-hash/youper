@@ -1,0 +1,20 @@
+{
+  "name": "youper",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @youper/web\" \"npm run dev --workspace @youper/api\"",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:generate": "npm run db:generate --workspace @youper/api",
+    "db:push": "npm run db:push --workspace @youper/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
