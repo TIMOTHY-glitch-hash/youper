@@ -1,0 +1,6 @@
+# These owners will be requested for review on pull requests.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @TIMOTHY-glitch-hash
+/docs/ @TIMOTHY-glitch-hash
+/.github/ @TIMOTHY-glitch-hash
