@@ -1,0 +1,48 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Node / JavaScript
+node_modules/
+.npm/
+.pnpm-store/
+coverage/
+.next/
+out/
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Java / JVM
+*.class
+.gradle/
+
+# Ruby
+.bundle/
+vendor/bundle/
+
+# Database
+*.sqlite3
+*.db
+
+# Misc
+*.tmp
+*.bak
